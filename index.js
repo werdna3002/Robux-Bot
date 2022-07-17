@@ -8,8 +8,11 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, Intents } = require('discord.js');
 //Discord Dependencies end ---------
+//For Longevity service
 
+const longe = require('./LongevityService.js');
 //Log into the running session of the Holder account... can be changed in the .env file.
+
 noblox.setCookie(process.env.CUKIE).then(function() {
     console.log("Logged In!");
 })
@@ -34,5 +37,6 @@ for (const file of eventFiles) {
     }
 }
 
+longe.runner()
 //Discord Dependency
    client.login(process.env.DISCORD_TOKEN); 
